@@ -33,8 +33,8 @@ export default function Header() {
                         <Building2 size={24} />
                     </div>
                     <div className="flex flex-col">
-                        <span className="font-extrabold text-xl text-slate-900 tracking-tight leading-none italic">부림부동산</span>
-                        <span className="text-[10px] font-bold text-blue-600 tracking-widest uppercase">공인중개사사무소</span>
+                        <span className="font-bold text-xl text-slate-900 tracking-tight leading-tight italic py-0.5">부림부동산</span>
+                        <span className="text-[10px] font-bold text-blue-600 tracking-widest uppercase leading-normal">공인중개사사무소</span>
                     </div>
                 </Link>
 

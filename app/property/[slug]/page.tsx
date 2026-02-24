@@ -110,7 +110,7 @@ export default async function PropertyDetailPage({ params }: { params: { slug: s
                                     {property.status === 'sold' && (
                                         <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center">
                                             <div className="border-4 border-white/40 p-8 rounded-full">
-                                                <span className="text-white font-black text-4xl uppercase tracking-[0.3em]">계약 완료</span>
+                                                <span className="text-white font-bold text-4xl uppercase tracking-[0.3em] leading-normal">계약 완료</span>
                                             </div>
                                         </div>
                                     )}
@@ -135,10 +135,10 @@ export default async function PropertyDetailPage({ params }: { params: { slug: s
                                 <div className="flex justify-between items-start mb-6">
                                     <div>
                                         <div className="flex items-center gap-3 mb-4">
-                                            <span className="bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">{property.transaction_type}</span>
-                                            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1"><Eye size={12} /> {property.view_count} 조회수</span>
+                                            <span className="bg-blue-600 text-white text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">{property.transaction_type}</span>
+                                            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5"><Eye size={13} /> {property.view_count} 조회수</span>
                                         </div>
-                                        <h1 className="text-2xl md:text-4xl font-black text-slate-900 leading-tight tracking-tighter uppercase mb-4">{property.title}</h1>
+                                        <h1 className="text-2xl md:text-4xl font-bold text-slate-900 leading-relaxed tracking-tight uppercase mb-4 py-1">{property.title}</h1>
                                         <div className="flex items-center gap-2 text-slate-500 font-bold uppercase tracking-tight">
                                             <MapPin size={18} className="text-blue-600" />
                                             {property.district} · {property.property_type}
@@ -152,40 +152,40 @@ export default async function PropertyDetailPage({ params }: { params: { slug: s
 
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 border-t border-slate-100">
                                     <div>
-                                        <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">거래 금액</div>
-                                        <div className="text-xl font-black text-blue-600 tracking-tighter">{formatPrice(property)}</div>
+                                        <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">거래 금액</div>
+                                        <div className="text-xl font-bold text-blue-600 tracking-tight leading-normal">{formatPrice(property)}</div>
                                     </div>
                                     <div>
-                                        <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">해당 층 / 전체 층</div>
-                                        <div className="text-xl font-black text-slate-900 tracking-tighter">{property.floor} / {property.total_floor}</div>
+                                        <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">해당 층 / 전체 층</div>
+                                        <div className="text-xl font-bold text-slate-900 tracking-tight leading-normal">{property.floor} / {property.total_floor}</div>
                                     </div>
                                     <div>
-                                        <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">전용 면적</div>
-                                        <div className="text-xl font-black text-slate-900 tracking-tighter">
-                                            {property.area} <span className="text-sm">m²</span>
-                                            <span className="text-xs text-blue-500 ml-2">({(property.area * 0.3025).toFixed(1)}평)</span>
+                                        <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">전용 면적</div>
+                                        <div className="text-xl font-bold text-slate-900 tracking-tight leading-normal py-0.5">
+                                            {property.area} <span className="text-sm font-normal text-slate-400">m²</span>
+                                            <span className="text-xs text-blue-600 ml-2">({(property.area * 0.3025).toFixed(1)}평)</span>
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">관리비</div>
-                                        <div className="text-2xl font-black text-slate-900 tracking-tighter">{property.maintenance_fee}<span className="text-sm">만</span></div>
+                                        <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">관리비</div>
+                                        <div className="text-xl font-bold text-slate-900 tracking-tight leading-normal">{property.maintenance_fee}<span className="text-sm font-normal text-slate-400 ml-0.5">만</span></div>
                                     </div>
                                 </div>
                             </section>
 
                             {/* Features & Options Table */}
                             <section className="bg-white rounded-[40px] p-10 shadow-sm border border-slate-100">
-                                <h3 className="text-xl font-black text-slate-900 uppercase tracking-tighter mb-8 flex items-center gap-2">
+                                <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tighter mb-8 flex items-center gap-2 py-1">
                                     <ClipboardCheck size={20} className="text-blue-600" /> 상세 정보 및 옵션
                                 </h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0.5">
                                     <div className="flex items-center py-5 border-b border-slate-50">
-                                        <span className="w-24 md:w-32 shrink-0 text-sm font-black text-slate-500 uppercase tracking-tight">엘리베이터</span>
-                                        <span className="font-black text-sm md:text-base text-slate-900">{property.elevator ? <span className="text-blue-600 flex items-center gap-1.5 uppercase"><CheckCircle size={18} strokeWidth={3} /> 있음</span> : <span className="text-slate-300 uppercase leading-none">없음</span>}</span>
+                                        <span className="w-24 md:w-32 shrink-0 text-sm font-bold text-slate-500 uppercase tracking-tight">엘리베이터</span>
+                                        <span className="font-bold text-sm md:text-base text-slate-900 leading-normal">{property.elevator ? <span className="text-blue-600 flex items-center gap-1.5 uppercase"><CheckCircle size={18} strokeWidth={2.5} /> 있음</span> : <span className="text-slate-300 uppercase leading-normal">없음</span>}</span>
                                     </div>
                                     <div className="flex items-center py-5 border-b border-slate-50">
-                                        <span className="w-24 md:w-32 shrink-0 text-sm font-black text-slate-500 uppercase tracking-tight">주차 여부</span>
-                                        <span className="font-black text-sm md:text-base text-slate-900">{property.parking ? <span className="text-blue-600 flex items-center gap-1.5 uppercase"><CheckCircle size={18} strokeWidth={3} /> 가능</span> : <span className="text-slate-300 uppercase leading-none">불가능</span>}</span>
+                                        <span className="w-24 md:w-32 shrink-0 text-sm font-bold text-slate-500 uppercase tracking-tight">주차 여부</span>
+                                        <span className="font-bold text-sm md:text-base text-slate-900 leading-normal">{property.parking ? <span className="text-blue-600 flex items-center gap-1.5 uppercase"><CheckCircle size={18} strokeWidth={2.5} /> 가능</span> : <span className="text-slate-300 uppercase leading-normal">불가능</span>}</span>
                                     </div>
                                     {Object.entries(options).filter(([key]) => ![
                                         'direction', 'room_count', 'bathroom_count', 'move_in_date', 'usage', 'supply_area'
@@ -208,37 +208,37 @@ export default async function PropertyDetailPage({ params }: { params: { slug: s
                                         };
                                         return (
                                             <div key={key} className="flex items-center py-5 border-b border-slate-50">
-                                                <span className="w-24 md:w-32 shrink-0 text-sm font-black text-slate-500 uppercase tracking-tight">{labels[key] || key}</span>
-                                                <span className="font-black text-sm md:text-base text-slate-900">{value ? <span className="text-blue-600 flex items-center gap-1.5 uppercase"><CheckCircle size={18} strokeWidth={3} /> 있음</span> : <span className="text-slate-300 uppercase leading-none">없음</span>}</span>
+                                                <span className="w-24 md:w-32 shrink-0 text-sm font-bold text-slate-500 uppercase tracking-tight">{labels[key] || key}</span>
+                                                <span className="font-bold text-sm md:text-base text-slate-900 leading-normal">{value ? <span className="text-blue-600 flex items-center gap-1.5 uppercase"><CheckCircle size={18} strokeWidth={2.5} /> 있음</span> : <span className="text-slate-300 uppercase leading-normal">없음</span>}</span>
                                             </div>
                                         );
                                     })}
                                     <div className="flex items-center py-5 border-b border-slate-50">
-                                        <span className="w-24 md:w-32 shrink-0 text-sm font-black text-slate-500 uppercase tracking-tight">방향</span>
-                                        <span className="font-black text-sm md:text-base text-slate-900">{options.direction || '남향'}</span>
+                                        <span className="w-24 md:w-32 shrink-0 text-sm font-bold text-slate-500 uppercase tracking-tight">방향</span>
+                                        <span className="font-bold text-sm md:text-base text-slate-900 leading-normal">{options.direction || '남향'}</span>
                                     </div>
                                     <div className="flex items-center py-5 border-b border-slate-50">
-                                        <span className="w-24 md:w-32 shrink-0 text-sm font-black text-slate-500 uppercase tracking-tight">구조</span>
-                                        <span className="font-black text-sm md:text-base text-slate-900">{options.room_count}룸 / {options.bathroom_count}욕실</span>
+                                        <span className="w-24 md:w-32 shrink-0 text-sm font-bold text-slate-500 uppercase tracking-tight">구조</span>
+                                        <span className="font-bold text-sm md:text-base text-slate-900 leading-normal">{options.room_count}룸 / {options.bathroom_count}욕실</span>
                                     </div>
                                     <div className="flex items-center py-5 border-b border-slate-50">
-                                        <span className="w-24 md:w-32 shrink-0 text-sm font-black text-slate-500 uppercase tracking-tight">입주 가능일</span>
-                                        <span className="font-black text-sm md:text-base text-slate-900">{options.move_in_date || '즉시 협의 가능'}</span>
+                                        <span className="w-24 md:w-32 shrink-0 text-sm font-bold text-slate-500 uppercase tracking-tight">입주 가능일</span>
+                                        <span className="font-bold text-sm md:text-base text-slate-900 leading-normal">{options.move_in_date || '즉시 협의 가능'}</span>
                                     </div>
                                 </div>
                             </section>
 
                             {/* Location Info Section */}
                             <section className="bg-white rounded-[40px] p-10 shadow-sm border border-slate-100">
-                                <h3 className="text-xl font-black text-slate-900 uppercase tracking-tighter mb-8 flex items-center gap-2">
+                                <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tighter mb-8 flex items-center gap-2 py-1">
                                     <MapIcon size={20} className="text-blue-600" /> 상세 위치 안내
                                 </h3>
                                 <div className="bg-slate-50 rounded-3xl p-8 flex flex-col items-center justify-center text-center border border-slate-100">
                                     <MapPin size={32} className="text-blue-500 mb-4 opacity-50" />
-                                    <p className="text-xl md:text-2xl font-black text-slate-900 leading-relaxed tracking-tight">
+                                    <p className="text-xl md:text-2xl font-bold text-slate-900 leading-relaxed tracking-tight py-1">
                                         수원시 <span className="text-blue-600">{property.district}</span> {(property as any).location_desc || '상세 위치'} 인근
                                     </p>
-                                    <p className="mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                                    <p className="mt-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest leading-normal">
                                         * 정확한 번지수는 방문 상담 시 안내해 드립니다.
                                     </p>
                                 </div>

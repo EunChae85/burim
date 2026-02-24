@@ -16,7 +16,7 @@ export default async function Footer() {
                 <div className="col-span-1 md:col-span-2">
                     <Link href="/" className="flex items-center gap-2 mb-6">
                         <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">B</div>
-                        <span className="text-white font-extrabold text-2xl italic tracking-tighter">부림부동산</span>
+                        <span className="text-white font-bold text-2xl italic tracking-tighter leading-tight py-1">부림부동산</span>
                     </Link>
                     <p className="max-w-sm mb-8 leading-relaxed">
                         수원 매교동과 세류동을 중심으로 정직하고 투명한 중개 서비스를 제공합니다.

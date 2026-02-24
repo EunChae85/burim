@@ -127,11 +127,11 @@ export default async function CategoryLayout({
             {/* Category Header */}
             <div className="bg-white border-b border-slate-200 pt-16 pb-12">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="uppercase tracking-widest text-blue-600 font-black text-xs mb-3 flex items-center gap-2">
+                    <div className="uppercase tracking-widest text-blue-600 font-bold text-[11px] mb-3 flex items-center gap-2">
                         <SlidersHorizontal size={14} /> 매물 컬렉션
                     </div>
-                    <h1 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter uppercase italic">{title}</h1>
-                    <p className="text-slate-500 font-medium max-w-2xl">{description}</p>
+                    <h1 className="text-4xl font-bold text-slate-900 mb-4 tracking-tighter uppercase italic leading-tight py-1">{title}</h1>
+                    <p className="text-slate-500 font-medium max-w-2xl leading-relaxed">{description}</p>
                 </div>
             </div>
 
