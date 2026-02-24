@@ -19,13 +19,13 @@ export default function PropertyList({ properties }: { properties: Property[] })
     const formatPrice = (p: Property) => {
         if (p.transaction_type === '매매') {
             const value = p.sale_price! / 10000;
-            return <><span className="text-xs mr-1 opacity-70">매</span> <span className="text-lg font-black">{value.toFixed(1)}</span><span className="text-xs font-bold ml-0.5">억</span></>;
+            return <><span className="text-sm mr-1 font-bold text-slate-500">매</span> <span className="text-xl font-black">{value.toFixed(1)}</span><span className="text-sm font-bold ml-0.5">억</span></>;
         }
         if (p.transaction_type === '전세') {
             const value = p.deposit / 10000;
-            return <><span className="text-xs mr-1 opacity-70">전</span> <span className="text-lg font-black">{value.toFixed(1)}</span><span className="text-xs font-bold ml-0.5">억</span></>;
+            return <><span className="text-sm mr-1 font-bold text-slate-500">전</span> <span className="text-xl font-black">{value.toFixed(1)}</span><span className="text-sm font-bold ml-0.5">억</span></>;
         }
-        return <><span className="text-xs mr-1 opacity-70">월</span> <span className="text-lg font-black">{p.deposit}/{p.rent}</span></>;
+        return <><span className="text-sm mr-1 font-bold text-slate-500">월</span> <span className="text-xl font-black">{p.deposit}/{p.rent}</span></>;
     };
 
     return (
@@ -95,43 +95,43 @@ export default function PropertyList({ properties }: { properties: Property[] })
 
                             {/* Content Container */}
                             <div className="p-4">
-                                <div className="flex justify-between items-start mb-2">
-                                    <div className="flex gap-1.5">
-                                        <span className="text-[9px] font-bold text-blue-600 border border-blue-200 bg-blue-50 px-1.5 py-0.5 rounded uppercase tracking-wider">
+                                <div className="flex justify-between items-start mb-3">
+                                    <div className="flex gap-1.5 text-shadow-sm">
+                                        <span className="text-[11px] font-bold text-blue-700 border-2 border-blue-100 bg-blue-50 px-2 py-0.5 rounded-lg uppercase tracking-wider">
                                             {property.property_type}
                                         </span>
-                                        <span className="text-[9px] font-bold text-slate-400 border border-slate-200 px-1.5 py-0.5 rounded uppercase tracking-wider">
+                                        <span className="text-[11px] font-bold text-slate-600 border-2 border-slate-200 px-2 py-0.5 rounded-lg uppercase tracking-wider bg-slate-50">
                                             {property.district}
                                         </span>
                                     </div>
-                                    <div className="flex items-center gap-1 text-slate-300 text-[9px] font-bold">
-                                        <Eye size={10} /> {property.view_count}
+                                    <div className="flex items-center gap-1 text-slate-500 text-[11px] font-bold">
+                                        <Eye size={12} /> {property.view_count}
                                     </div>
                                 </div>
 
-                                <h3 className="text-sm text-slate-900 font-extrabold line-clamp-1 mb-2 group-hover:text-blue-600 transition-colors uppercase tracking-tight leading-none">
+                                <h3 className="text-lg text-slate-900 font-black line-clamp-1 mb-3 group-hover:text-blue-600 transition-colors uppercase tracking-tight leading-none">
                                     {property.title}
                                 </h3>
 
-                                <div className="grid grid-cols-[1.3fr_0.7fr] gap-1 mb-4 border-y border-slate-50 py-2.5">
-                                    <div className="flex items-center gap-1.5 text-slate-700 min-w-0">
-                                        <Maximize size={15} className="text-blue-600 shrink-0" />
-                                        <span className="text-[12px] font-black uppercase tracking-tighter truncate">
-                                            {property.area} <span className="text-[10px] opacity-30">m²</span>
-                                            <span className="ml-0.5 text-blue-600">({(property.area * 0.3025).toFixed(1)}P)</span>
+                                <div className="grid grid-cols-[1.3fr_0.7fr] gap-1 mb-4 border-y border-slate-100 py-3">
+                                    <div className="flex items-center gap-1.5 text-slate-800 min-w-0">
+                                        <Maximize size={18} className="text-blue-600 shrink-0" />
+                                        <span className="text-[14px] font-black uppercase tracking-tighter truncate">
+                                            {property.area} <span className="text-[11px] text-slate-400">m²</span>
+                                            <span className="ml-1 text-blue-600">({(property.area * 0.3025).toFixed(1)}평)</span>
                                         </span>
                                     </div>
-                                    <div className="flex items-center gap-1.5 text-slate-700 min-w-0">
-                                        <Layers size={15} className="text-blue-600 shrink-0" />
-                                        <span className="text-[12px] font-black uppercase tracking-tighter truncate">{property.floor}/{property.total_floor}</span>
+                                    <div className="flex items-center gap-1.5 text-slate-800 min-w-0">
+                                        <Layers size={18} className="text-blue-600 shrink-0" />
+                                        <span className="text-[14px] font-black uppercase tracking-tighter truncate">{property.floor}/{property.total_floor}</span>
                                     </div>
                                 </div>
 
-                                <div className="flex items-center justify-between border-t border-slate-50 pt-3 mt-1">
+                                <div className="flex items-center justify-between border-t border-slate-100 pt-3.5 mt-1">
                                     <div className="text-slate-900 leading-none">
                                         {formatPrice(property)}
                                     </div>
-                                    <div className="text-[10px] font-black text-slate-300 uppercase tracking-widest text-right">
+                                    <div className="text-[12px] font-black text-slate-500 uppercase tracking-widest text-right">
                                         관리비 {property.maintenance_fee}만
                                     </div>
                                 </div>
