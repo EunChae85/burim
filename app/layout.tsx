@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"], weight: ['400', '500', '600', '700', '800'] });
+const noto = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ['300', '400', '500', '700', '900'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || 'https://burim-estate.com'),
@@ -73,7 +77,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="scroll-smooth">
-      <body className={`${inter.className} antialiased selection:bg-blue-100 selection:text-blue-700`}>
+      <body className={`${noto.className} antialiased selection:bg-blue-100 selection:text-blue-700`}>
         <Header />
         <main className="min-h-[calc(100vh-80px-300px)]">
           {children}

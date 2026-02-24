@@ -96,20 +96,20 @@ export default function PropertyList({ properties }: { properties: Property[] })
                             {/* Content Container */}
                             <div className="p-4">
                                 <div className="flex justify-between items-start mb-3">
-                                    <div className="flex gap-1.5 text-shadow-sm">
-                                        <span className="text-[11px] font-bold text-blue-700 border-2 border-blue-100 bg-blue-50 px-2 py-0.5 rounded-lg uppercase tracking-wider">
+                                    <div className="flex gap-1.5">
+                                        <span className="text-[11px] font-semibold text-blue-700 border-2 border-blue-100 bg-blue-50/50 px-2 py-0.5 rounded-lg uppercase tracking-wider">
                                             {property.property_type}
                                         </span>
-                                        <span className="text-[11px] font-bold text-slate-600 border-2 border-slate-200 px-2 py-0.5 rounded-lg uppercase tracking-wider bg-slate-50">
+                                        <span className="text-[11px] font-medium text-slate-600 border-2 border-slate-100 px-2 py-0.5 rounded-lg uppercase tracking-wider bg-slate-50">
                                             {property.district}
                                         </span>
                                     </div>
-                                    <div className="flex items-center gap-1 text-slate-500 text-[11px] font-bold">
+                                    <div className="flex items-center gap-1 text-slate-400 text-[11px] font-medium">
                                         <Eye size={12} /> {property.view_count}
                                     </div>
                                 </div>
 
-                                <h3 className="text-lg text-slate-900 font-black line-clamp-1 mb-3 group-hover:text-blue-600 transition-colors uppercase tracking-tight leading-none">
+                                <h3 className="text-lg text-slate-900 font-bold line-clamp-1 mb-3 group-hover:text-blue-600 transition-colors uppercase tracking-tight leading-none">
                                     {property.title}
                                 </h3>
 
