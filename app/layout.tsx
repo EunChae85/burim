@@ -7,13 +7,56 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"], weight: ['400', '500', '600', '700', '800'] });
 
 export const metadata: Metadata = {
-  title: "부림공인중개사 - 매교동/세류동 프리미엄 부동산",
-  description: "수원 매교동, 세류동, 인계동 프리미엄 부동산 매물 중개 플랫폼. 정확한 정보와 안전한 거래를 약속합니다.",
+  metadataBase: new URL(process.env.SITE_URL || 'https://burim-estate.com'),
+  title: {
+    default: "부림공인중개사 - 매교동/세류동 프리미엄 부동산",
+    template: "%s | 부림공인중개사"
+  },
+  description: "수원 매교동(매교역), 세류동 프리미엄 부동산 매물 중개. 아파트, 오피스텔, 원룸, 상가 전문 부림부동산에서 정확한 정보를 확인하세요.",
+  keywords: ["수원부동산", "매교역부동산", "매교동부동산", "세류동부동산", "수원아파트매매", "수원원룸월세", "부림공인중개사", "권선구부동산"],
+  authors: [{ name: "부림공인중개사" }],
+  creator: "부림공인중개사",
+  publisher: "부림공인중개사",
+  formatDetection: {
+    email: false,
+    address: true,
+    telephone: true,
+  },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: "부림공인중개사 - 수원 프리미엄 부동산",
-    description: "매교역, 세류역 인근 아파트, 원룸, 투룸, 상가 전문 공인중개사.",
-    type: "website",
-    locale: "ko_KR",
+    description: "매교동/세류동 아파트, 원룸, 상가 전문. 부림에서 당신이 꿈꾸던 가치를 시작하세요.",
+    url: 'https://burim-estate.com',
+    siteName: '부림공인중개사',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: '부림공인중개사 수원 부동산',
+      },
+    ],
+    locale: 'ko_KR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "부림공인중개사 - 수원 프리미엄 부동산",
+    description: "매교역/세류역 인근 아파트, 원룸 전문 중개.",
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
