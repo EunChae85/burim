@@ -41,7 +41,7 @@ export default function PropertyList({ properties }: { properties: Property[] })
                     <Link href={`/property/${property.slug}`} className="group block">
                         <div className="relative overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group">
                             {/* Thumbnail Container */}
-                            <div className="relative aspect-[16/9] overflow-hidden bg-slate-100 shadow-inner">
+                            <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 shadow-inner">
                                 {property.thumbnail ? (
                                     <Image
                                         src={property.thumbnail}
