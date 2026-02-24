@@ -1,8 +1,8 @@
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import InquiryForm from '@/components/InquiryForm';
-import { MapPin, Eye, Phone, User, CheckCircle, Share2, Printer, Map as MapIcon, ChevronRight, ClipboardCheck } from 'lucide-react';
-import Link from 'next/link';
+import { MapPin, Eye, Phone, User, CheckCircle, Share2, Printer, Map as MapIcon, ClipboardCheck } from 'lucide-react';
+
 import Image from 'next/image';
 import { Metadata } from 'next';
 

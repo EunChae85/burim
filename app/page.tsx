@@ -1,6 +1,6 @@
 import PropertyList from '@/components/PropertyList';
 import { prisma } from '@/lib/prisma';
-import { Search, Building2, Store, Home, Map, ClipboardCheck, Phone, ArrowRight, Zap, Sparkles } from 'lucide-react';
+import { Building2, Store, Home, Map, ClipboardCheck, Phone, Zap, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import SearchForm from '@/components/SearchForm';

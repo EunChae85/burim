@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Save, Upload, Plus, X, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { ArrowLeft, Save, Plus, X, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function EditPropertyPage({ params }: { params: { id: string } }) {
     const router = useRouter();
@@ -288,7 +289,7 @@ export default function EditPropertyPage({ params }: { params: { id: string } })
                                     className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-slate-900 transition-all font-medium"
                                 />
                                 <p className="mt-2 text-[10px] text-slate-400 font-bold uppercase italic tracking-tighter">
-                                    * 상세 페이지에 "수원시 [지역] [입력값] 인근"으로 표시됩니다.
+                                    * 상세 페이지에 &quot;수원시 [지역] [입력값] 인근&quot;으로 표시됩니다.
                                 </p>
                             </div>
                         </div>
@@ -492,7 +493,7 @@ export default function EditPropertyPage({ params }: { params: { id: string } })
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                             {formData.images.map((img, idx) => (
                                 <div key={idx} className="relative aspect-square rounded-2xl overflow-hidden group">
-                                    <img src={img} alt={`Upload ${idx}`} className="w-full h-full object-cover" />
+                                    <Image src={img} alt={`Upload ${idx}`} width={200} height={200} className="w-full h-full object-cover" />
                                     <button
                                         type="button"
                                         onClick={() => setFormData(prev => ({ ...prev, images: prev.images.filter((_, i) => i !== idx) }))}
