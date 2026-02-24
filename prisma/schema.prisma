@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Property {
+  id               String      @id @default(uuid())
+  title            String
+  slug             String      @unique
+  district         String
+  property_type    String
+  transaction_type String
+  deposit          Int
+  rent             Int?
+  sale_price       Int?
+  area             Float
+  floor            String
+  total_floor      String
+  maintenance_fee  Int
+  options          Json?
+  location_desc    String?
+  address          String?
+  elevator         Boolean     @default(false)
+  parking          Boolean     @default(false)
+  lat              Float?
+  lng              Float?
+  thumbnail        String?
+  images           Json?
+  is_featured      Boolean     @default(false)
+  is_shared        Boolean     @default(false)
+  status           String      @default("active") // "active" | "sold"
+  view_count       Int         @default(0)
+  created_at       DateTime    @default(now())
+  updated_at       DateTime    @updatedAt
+
+  inquiries        Inquiry[]
+
+  @@map("properties")
+}
+
+model Inquiry {
+  id          Int      @id @default(autoincrement())
+  property_id String
+  property    Property @relation(fields: [property_id], references: [id], onDelete: Cascade)
+  name        String
+  phone       String
+  message     String
+  created_at  DateTime @default(now())
+
+  @@map("inquiries")
+}
+
+model SiteSettings {
+  id              String   @id @default("singleton")
+  phone           String   @default("031-123-4567")
+  address         String   @default("경기도 수원시 팔달구 매교동 123-45")
+  office_name     String   @default("부림공인중개사사무소")
+  updated_at      DateTime @updatedAt
+
+  @@map("site_settings")
+}

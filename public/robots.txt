@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /admin
+Disallow: /api
+
+# Host
+Host: https://burim.netlify.app
+
+# Sitemaps
+Sitemap: https://burim.netlify.app/sitemap.xml
