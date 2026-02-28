@@ -1,25 +1,22 @@
 import { NextResponse } from 'next/server';
-import jwt from 'jsonwebtoken';
+import * as jose from 'jose';
 
 const ADMIN_USERNAME = (process.env.ADMIN_USERNAME || 'admin').replace(/^["']|["']$/g, '').trim();
 const ADMIN_PASSWORD = (process.env.ADMIN_PASSWORD || 'burim1234!').replace(/^["']|["']$/g, '').trim();
 const ADMIN_SECRET = (process.env.ADMIN_SECRET || 'fallback-secret-key').replace(/^["']|["']$/g, '').trim();
 
 export async function POST(request: Request) {
-    console.log('--- Login API Hit ---');
     try {
         const body = await request.json();
         const { username, password } = body;
 
-        console.log('Login credentials received:', {
-            username,
-            expectedUsername: ADMIN_USERNAME,
-            passwordMatch: password === ADMIN_PASSWORD
-        });
-
         if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-            console.log('Authentication successful');
-            const token = jwt.sign({ role: 'admin' }, ADMIN_SECRET, { expiresIn: '12h' });
+            const secret = new TextEncoder().encode(ADMIN_SECRET);
+            const token = await new jose.SignJWT({ role: 'admin' })
+                .setProtectedHeader({ alg: 'HS256' })
+                .setIssuedAt()
+                .setExpirationTime('12h')
+                .sign(secret);
 
             const response = NextResponse.json({ success: true });
             response.cookies.set('admin_token', token, {

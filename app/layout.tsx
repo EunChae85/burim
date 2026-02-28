@@ -13,11 +13,11 @@ const gothic = Gothic_A1({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || 'https://burim-estate.com'),
   title: {
-    default: "부림공인중개사 - 매교동/세류동 프리미엄 부동산",
+    default: "부림공인중개사 - 수원 프리미엄 부동산 전문가",
     template: "%s | 부림공인중개사"
   },
-  description: "수원 매교동(매교역), 세류동 프리미엄 부동산 매물 중개. 아파트, 오피스텔, 원룸, 상가 전문 부림부동산에서 정확한 정보를 확인하세요.",
-  keywords: ["수원부동산", "매교역부동산", "매교동부동산", "세류동부동산", "수원아파트매매", "수원원룸월세", "부림공인중개사", "권선구부동산"],
+  description: "수원 전 지역 프리미엄 부동산 매물 중개. 아파트, 오피스텔, 원룸, 상가 전문 부림부동산에서 정확한 정보를 확인하세요.",
+  keywords: ["수원부동산", "수원지역전문", "수원아파트매매", "수원원룸월세", "부림공인중개사", "수원부동산뉴스", "수원부동산분석"],
   authors: [{ name: "부림공인중개사" }],
   creator: "부림공인중개사",
   publisher: "부림공인중개사",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "부림공인중개사 - 수원 프리미엄 부동산",
-    description: "매교동/세류동 아파트, 원룸, 상가 전문. 부림에서 당신이 꿈꾸던 가치를 시작하세요.",
+    description: "수원 전 지역 아파트, 원룸, 상가 전문. 부림에서 당신이 꿈꾸던 가치를 시작하세요.",
     url: 'https://burim-estate.com',
     siteName: '부림공인중개사',
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "부림공인중개사 - 수원 프리미엄 부동산",
-    description: "매교역/세류역 인근 아파트, 원룸 전문 중개.",
+    description: "수원 지역 인근 아파트, 원룸 전문 중개 및 부동산 리포트.",
     images: ['/og-image.jpg'],
   },
   robots: {

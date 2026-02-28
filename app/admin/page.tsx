@@ -1,6 +1,6 @@
 import SiteSettingsManager from '@/components/admin/SiteSettingsManager';
 import Link from 'next/link';
-import { Home, LayoutDashboard, MessageSquare, Settings } from 'lucide-react';
+import { Home, LayoutDashboard, MessageSquare, Settings, Newspaper } from 'lucide-react';
 
 export default function AdminDashboardPage() {
     return (
@@ -44,6 +44,15 @@ export default function AdminDashboardPage() {
                                 <h2 className="text-xl font-black text-slate-900 mb-2 uppercase italic">문의 내역</h2>
                                 <p className="text-slate-500 text-sm font-medium mb-6">고객님이 남기신 상담 예약 정보를 확인하세요.</p>
                                 <Link href="/admin/inquiries" className="block text-center w-full bg-slate-100 text-slate-900 font-black py-3 rounded-xl hover:bg-slate-900 hover:text-white transition-all uppercase tracking-tight italic">문의 확인하기</Link>
+                            </div>
+
+                            <div className="bg-white p-8 rounded-[32px] shadow-sm border border-slate-100 group hover:border-blue-200 transition-all">
+                                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                    <Newspaper size={24} />
+                                </div>
+                                <h2 className="text-xl font-black text-slate-900 mb-2 uppercase italic">뉴스/소식 관리</h2>
+                                <p className="text-slate-500 text-sm font-medium mb-6">수집된 뉴스를 편집하고 발행할 수 있습니다.</p>
+                                <Link href="/admin/news" className="block text-center w-full bg-slate-100 text-slate-900 font-black py-3 rounded-xl hover:bg-slate-900 hover:text-white transition-all uppercase tracking-tight italic">뉴스 관리하기</Link>
                             </div>
                         </div>
 

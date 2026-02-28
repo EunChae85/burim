@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,9 +7,9 @@ datasource db {
 }
 
 model Property {
-  id               String      @id @default(uuid())
+  id               String    @id @default(uuid())
   title            String
-  slug             String      @unique
+  slug             String    @unique
   district         String
   property_type    String
   transaction_type String
@@ -24,21 +21,20 @@ model Property {
   total_floor      String
   maintenance_fee  Int
   options          Json?
-  location_desc    String?
-  address          String?
-  elevator         Boolean     @default(false)
-  parking          Boolean     @default(false)
+  elevator         Boolean   @default(false)
+  parking          Boolean   @default(false)
   lat              Float?
   lng              Float?
   thumbnail        String?
   images           Json?
-  is_featured      Boolean     @default(false)
-  is_shared        Boolean     @default(false)
-  status           String      @default("active") // "active" | "sold"
-  view_count       Int         @default(0)
-  created_at       DateTime    @default(now())
-  updated_at       DateTime    @updatedAt
-
+  is_featured      Boolean   @default(false)
+  is_shared        Boolean   @default(false)
+  status           String    @default("active")
+  view_count       Int       @default(0)
+  created_at       DateTime  @default(now())
+  updated_at       DateTime  @updatedAt
+  address          String?
+  location_desc    String?
   inquiries        Inquiry[]
 
   @@map("properties")
@@ -47,21 +43,46 @@ model Property {
 model Inquiry {
   id          Int      @id @default(autoincrement())
   property_id String
-  property    Property @relation(fields: [property_id], references: [id], onDelete: Cascade)
   name        String
   phone       String
   message     String
   created_at  DateTime @default(now())
+  property    Property @relation(fields: [property_id], references: [id], onDelete: Cascade)
 
   @@map("inquiries")
 }
 
 model SiteSettings {
-  id              String   @id @default("singleton")
-  phone           String   @default("031-123-4567")
-  address         String   @default("경기도 수원시 팔달구 매교동 123-45")
-  office_name     String   @default("부림공인중개사사무소")
-  updated_at      DateTime @updatedAt
+  id          String   @id @default("singleton")
+  phone       String   @default("031-123-4567")
+  address     String   @default("경기도 수원시 팔달구 매교동 123-45")
+  office_name String   @default("부림공인중개사사무소")
+  updated_at  DateTime @updatedAt
 
   @@map("site_settings")
+}
+
+model News {
+  id              String     @id @default(uuid())
+  title           String
+  slug            String     @unique
+  aiTitle         String?
+  content         String
+  aiContent       String?
+  factBlock       String?
+  sourceName      String
+  sourceUrl       String     @unique
+  originalSummary String?
+  status          NewsStatus @default(DRAFT)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  category        String?    @default("NATIONAL")
+  relevanceScore  Int?       @default(5)
+
+  @@map("news")
+}
+
+enum NewsStatus {
+  DRAFT
+  PUBLISHED
 }
